@@ -1,0 +1,50 @@
+.span6 p{
+    margin-top: 45px;
+}
+.span6 p a, .span6 p a:hover{
+    font-size: 110px;
+}
+footer{
+    background-color: #1A53BC;
+    color: #eee;
+}
+.time{
+    color: #1A53BC;
+    font-size:270px;
+    font-weight:bold;
+    height:140px;
+    left:30px; top:10px;
+    text-align:center;
+    margin-top: 10px;
+}
+.score{
+    font-size: 200px;
+    height: 150px;
+    margin: 80px 0 -30px;
+}
+
+.blue, .red, .blue:hover, .red:hover{
+    text-decoration: none;
+    font-size: 80px;
+    font-weight: 800;
+    color: black
+}
+
+.bk-red{
+    background-color: #e74c3c;
+}
+
+.bk-blue{
+    background-color: #3498db;
+}
+#vs{
+    position:absolute;
+    top: calc(50%); left: calc(50% - 50px);
+    width: 100px
+}
+.middle{
+    margin-top: 150px;
+}
+.h24{
+    font-size: 18px;
+}

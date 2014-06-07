@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>Chrono | USNC Basket - Union Sportive de Noyal-Châtillon/Seiche</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Site de l'association de l'USNC Basket de Noyal-Châtillon sur Seiche">
+        <meta name="author" content="Kévin LACIRE">
+        <link rel="icon" type="image/jpg" href="img/logoPlayer.jpg" />
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/24h.css" rel="stylesheet">
+        <!--<link href="css/bootstrap.min.css" rel="stylesheet">
+        <!--<link href="css/bootstrap-responsive.min.css" rel="stylesheet">-->
+        <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="js/countdown.min.js"></script>
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="navbar navbar-usnc navbar-static-top">
+                    <div class="navbar-inner">
+                        <div class="container">
+                            <a class="brand" href="/"><img src="img/usnc_logo.png" alt="USNC Basket" title="Retourner à la page d'accueil"></a>
+                            <div class="nav-collapse collapse">
+                                <ul class="nav">
+                                    <li><a href="index.php" title="Retourner à l'accueil">Accueil</a></li>
+                                    <li><a href="bureau.php" title="Organigramme du bureau de la saison">Bureau</a></li>
+                                    <li><a href="entrainement.php" title="Planning des entrainements">Entraînement</a></li>
+                                    <li><a href="boutique.php" title="Boutique de l'USNC pour la saison">Boutique</a></li>
+                                    <li><a href="sponsors.php" title="Liste des sponsors de la saison">Sponsors</a></li>
+                                    <li><a href="24h.php" title="24h Basket">24h Basket</a></li>
+                                    <li><a href="acces.php" title="Nous trouver">Accès</a></li>
+                                    <li><a href="contact.php" title="Contacter l'USNC Basket">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+<script type="text/javascript">
+    countdown.ALL =
+        countdown.HOURS |
+        countdown.MINUTES |
+        countdown.SECONDS;
+    var time;
+    setInterval(function() {
+        time = countdown(new Date(2014, 4, 8, 20, 00, 00), null, countdown.ALL);
+    }, 1000);
+
+    setInterval(function() {
+        if (time.hours <= 9) {
+            time.hours = '0' + time.hours;
+        }
+        if (time.minutes <= 9) {
+            time.minutes = '0' + time.minutes;
+        }
+        if (time.seconds <= 9) {
+            time.seconds = '0' + time.seconds;
+        }
+
+        $('#heures').text(time.hours);
+        $('#minutes').text(time.minutes);
+        $('#secondes').text(time.seconds);
+    }, 1000);
+    
+    function incBlue(){
+        var value = $("#scoreBlue").text();
+        value++;
+        $("#scoreBlue").text(value);
+    }
+    function incRed(){
+        var value = $("#scoreRed").text();
+        value++;
+        $("#scoreRed").text(value);
+    }
+    function decBlue(){
+        var value = $("#scoreBlue").text();
+        value--;
+        $("#scoreBlue").text(value);
+    }
+    function decRed(){
+        var value = $("#scoreRed").text();
+        value--;
+        $("#scoreRed").text(value);
+    }
+    
+</script>
+<div class="row">  
+    <div class="middle time"><span id="heures"></span><strong>:</strong><span id="minutes"></span><strong>:</strong><span id="secondes"></span></div>
+</div>
+<div class="row">
+    <div class="span6 bk-blue">
+        <h1 id="scoreBlue" class="score pagination-centered">594</h1>
+        <hr>
+        <p class="">
+            <a onclick="incBlue()" class="blue" title="Ajouter un point aux bleus" href="#" style="margin-left: 50px">+</a>
+            <a onclick="decBlue()" class="blue offset6" title="Enlver un point aux bleus" href="#" style="margin-left: 275px">-</a>
+        </p>
+    </div>
+    <div class="span6 bk-red">
+        <h1 id="scoreRed" class="score pagination-centered">608</h1>
+        <hr>
+        <p class="">
+            <a onclick="incRed()" class="red" title="Ajouter un point aux rouges" href="#" style="margin-left: 50px">+</a>
+            <a onclick="decRed()" class="red " title="Enlever un point aux rouges" href="#" style="margin-left: 275px">-</a>
+        </p>
+    </div>
+</div>
+<img id="vs" src="img/vs.png" />
