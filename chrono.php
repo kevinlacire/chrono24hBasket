@@ -7,7 +7,7 @@
         countdown.SECONDS;
     var time;
     setInterval(function() {
-        time = countdown(new Date(2014, 4, 8, 20, 00, 00), null, countdown.ALL);
+        time = countdown(new Date(2015, 4, 8, 20, 00, 00), null, countdown.ALL);
     }, 1000);
 
     setInterval(function() {

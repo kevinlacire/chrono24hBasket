@@ -19,3 +19,4 @@
 		<button id="reset">RESET</button>
 		<button id="option1">OPTION 1</button>
 		<button id="option2">OPTION 2</button>
+        <button id="option3">OPTION 3</button>
