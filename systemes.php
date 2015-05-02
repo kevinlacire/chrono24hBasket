@@ -13,6 +13,7 @@
 			<li><a href="systemeDeux.php" title="Système Deux">Système Deux</a></li>
 			<li><a href="systemeEcarte.php" title="Système Écarté">Système Écarté</a></li>
 			<li><a href="systemeMercredi.php" title="Système Mercredi">Système Mercredi</a></li>
+			<li><a href="systemeTransit.php" title="Système Transit">Système Transit</a></li>
 		</ul>
 		<ul class="right">
 			<li><a href="systemePoingDroit.php" title="Système Poing Droit">Système Poing Droit</a></li>

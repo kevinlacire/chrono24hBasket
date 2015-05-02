@@ -18,24 +18,30 @@ footer{
     margin-top: 10px;
 }
 .score{
-    font-size: 200px;
+    font-size: 150px;
     height: 150px;
     margin: 80px 0 -30px;
+    text-align: center;
 }
 
-.blue, .red, .blue:hover, .red:hover{
+.black, .white, .black:hover, .white:hover{
     text-decoration: none;
     font-size: 80px;
     font-weight: 800;
     color: black
 }
 
-.bk-red{
-    background-color: #e74c3c;
+.bk-black{
+    background-color: black;
+    color: whitesmoke;
+}
+#incBlack, #decBlack{
+    color: whitesmoke;
 }
 
-.bk-blue{
-    background-color: #3498db;
+.bk-white{
+    background-color: whitesmoke;
+    color: black;
 }
 #vs{
     position:absolute;

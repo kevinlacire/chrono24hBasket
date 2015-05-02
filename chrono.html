@@ -43,73 +43,91 @@
                 </div>
             </nav>
         </header>
-<script type="text/javascript">
-    countdown.ALL =
-        countdown.HOURS |
-        countdown.MINUTES |
-        countdown.SECONDS;
-    var time;
-    setInterval(function() {
-        time = countdown(new Date(2014, 4, 8, 20, 00, 00), null, countdown.ALL);
-    }, 1000);
+        <script type="text/javascript">
+            $(function () {
+                var totalSeconds;
+                var hours   = $('#heures');
+                var minutes = $('#minutes');
+                var seconds = $('#secondes');
 
-    setInterval(function() {
-        if (time.hours <= 9) {
-            time.hours = '0' + time.hours;
-        }
-        if (time.minutes <= 9) {
-            time.minutes = '0' + time.minutes;
-        }
-        if (time.seconds <= 9) {
-            time.seconds = '0' + time.seconds;
-        }
+                function timeUpdate() {
+                    var sec = totalSeconds;
+                    if (sec > 0) {
+                        totalSeconds--;
+                        var h = Math.floor(sec / 3600);
+                        sec %= 3600;
+                        var min = Math.floor(sec / 60);
+                        sec %= 60;
+                        hours.text(((h < 10) ? "0" : "") + h);
+                        minutes.text(((min < 10) ? "0" : "") + min);
+                        seconds.text(((sec < 10) ? "0" : "") + sec);
+                    }
+                    else {
+                        document.getElementById("heures").innerHTML = '';
+                        document.getElementById("heures").innerHTML = 'The world has ended! Or has it?';
+                    }
+                }
 
-        $('#heures').text(time.hours);
-        $('#minutes').text(time.minutes);
-        $('#secondes').text(time.seconds);
-    }, 1000);
-    
-    function incBlue(){
-        var value = $("#scoreBlue").text();
-        value++;
-        $("#scoreBlue").text(value);
-    }
-    function incRed(){
-        var value = $("#scoreRed").text();
-        value++;
-        $("#scoreRed").text(value);
-    }
-    function decBlue(){
-        var value = $("#scoreBlue").text();
-        value--;
-        $("#scoreBlue").text(value);
-    }
-    function decRed(){
-        var value = $("#scoreRed").text();
-        value--;
-        $("#scoreRed").text(value);
-    }
-    
-</script>
-<div class="row">  
-    <div class="middle time"><span id="heures"></span><strong>:</strong><span id="minutes"></span><strong>:</strong><span id="secondes"></span></div>
-</div>
-<div class="row">
-    <div class="span6 bk-blue">
-        <h1 id="scoreBlue" class="score pagination-centered">594</h1>
-        <hr>
-        <p class="">
-            <a onclick="incBlue()" class="blue" title="Ajouter un point aux bleus" href="#" style="margin-left: 50px">+</a>
-            <a onclick="decBlue()" class="blue offset6" title="Enlver un point aux bleus" href="#" style="margin-left: 275px">-</a>
-        </p>
-    </div>
-    <div class="span6 bk-red">
-        <h1 id="scoreRed" class="score pagination-centered">608</h1>
-        <hr>
-        <p class="">
-            <a onclick="incRed()" class="red" title="Ajouter un point aux rouges" href="#" style="margin-left: 50px">+</a>
-            <a onclick="decRed()" class="red " title="Enlever un point aux rouges" href="#" style="margin-left: 275px">-</a>
-        </p>
-    </div>
-</div>
-<img id="vs" src="img/vs.png" />
+                function initiate(sec) {
+                    totalSeconds = parseInt(sec);
+                    setInterval(function() {
+                        timeUpdate();
+                    }, 1000);
+                }
+
+                $('#startPauseCountDown').click(function(){
+                    initiate(24 * 60 * 60);
+                });
+
+                var scoreBlack = $("#scoreBlack");
+                var scoreWhite = $("#scoreWhite");
+
+                $('#incBlack').click(function () {
+                    var value = scoreBlack.text();
+                    value++;
+                    scoreBlack.text(value);
+                });
+                $('#incWhite').click(function () {
+                    var value = scoreWhite.text();
+                    value++;
+                    scoreWhite.text(value);
+                });
+                $('#decBlack').click(function () {
+                    var value = scoreBlack.text();
+                    if(value > 0) {
+                        value--;
+                    }
+                    scoreBlack.text(value);
+                });
+                $('#decWhite').click(function () {
+                    var value = scoreWhite.text();
+                    if(value > 0) {
+                        value--;
+                    }
+                    scoreWhite.text(value);
+                });
+            });
+        </script>
+        <div class="row">
+            <h3 id="startPauseCountDown" class="btn btn-info btn-block">Start</h3>
+            <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
+        </div>
+        <div class="row">
+            <div class="span6 bk-black">
+                <h1 id="scoreBlack" class="score pagination-centewhite">0</h1>
+                <hr>
+                <p class="">
+                    <a id="incBlack" class="black" title="Ajouter un point aux bleus" href="#" style="margin-left: 50px">+</a>
+                    <a id="decBlack" class="black offset6" title="Enlver un point aux bleus" href="#" style="margin-left: 275px">-</a>
+                </p>
+            </div>
+            <div class="span6 bk-white">
+                <h1 id="scoreWhite" class="score pagination-centewhite">0</h1>
+                <hr>
+                <p class="">
+                    <a id="incWhite" class="white" title="Ajouter un point aux rouges" href="#" style="margin-left: 50px">+</a>
+                    <a id="decWhite" class="white " title="Enlever un point aux rouges" href="#" style="margin-left: 275px">-</a>
+                </p>
+            </div>
+        </div>
+        <img id="vs" src="img/vs.png" />
