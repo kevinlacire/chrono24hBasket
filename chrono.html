@@ -106,6 +106,12 @@
                     }
                     scoreWhite.text(value);
                 });
+                window.onbeforeunload = function() {
+                    return "Si vous quittez cette page toutes le score et le chrono seront remis à zéro.";
+                }
+                function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+                $(document).bind("keydown", disableF5);
+                $(document).on("keydown", disableF5);
             });
         </script>
         <div class="row">
