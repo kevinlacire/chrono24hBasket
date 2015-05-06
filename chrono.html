@@ -9,8 +9,8 @@
         <link rel="icon" type="image/jpg" href="img/logoPlayer.jpg" />
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/24h.css" rel="stylesheet">
-        <!--<link href="css/bootstrap.min.css" rel="stylesheet">
-        <!--<link href="css/bootstrap-responsive.min.css" rel="stylesheet">-->
+        <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
         <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script src="js/countdown.min.js"></script>
@@ -20,29 +20,6 @@
         <![endif]-->
     </head>
     <body>
-        <header>
-            <nav>
-                <div class="navbar navbar-usnc navbar-static-top">
-                    <div class="navbar-inner">
-                        <div class="container">
-                            <a class="brand" href="/"><img src="img/usnc_logo.png" alt="USNC Basket" title="Retourner à la page d'accueil"></a>
-                            <div class="nav-collapse collapse">
-                                <ul class="nav">
-                                    <li><a href="index.php" title="Retourner à l'accueil">Accueil</a></li>
-                                    <li><a href="bureau.php" title="Organigramme du bureau de la saison">Bureau</a></li>
-                                    <li><a href="entrainement.php" title="Planning des entrainements">Entraînement</a></li>
-                                    <li><a href="boutique.php" title="Boutique de l'USNC pour la saison">Boutique</a></li>
-                                    <li><a href="sponsors.php" title="Liste des sponsors de la saison">Sponsors</a></li>
-                                    <li><a href="24h.php" title="24h Basket">24h Basket</a></li>
-                                    <li><a href="acces.php" title="Nous trouver">Accès</a></li>
-                                    <li><a href="contact.php" title="Contacter l'USNC Basket">Contact</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
         <script type="text/javascript">
             $(function () {
                 var totalSeconds;
@@ -114,26 +91,78 @@
                 $(document).on("keydown", disableF5);
             });
         </script>
-        <div class="row">
-            <h3 id="startPauseCountDown" class="btn btn-info btn-block">Start</h3>
-            <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
-        </div>
-        <div class="row">
-            <div class="span6 bk-black">
-                <h1 id="scoreBlack" class="score pagination-centewhite">0</h1>
-                <hr>
-                <p class="">
-                    <a id="incBlack" class="black" title="Ajouter un point aux bleus" href="#" style="margin-left: 50px">+</a>
-                    <a id="decBlack" class="black offset6" title="Enlver un point aux bleus" href="#" style="margin-left: 275px">-</a>
-                </p>
-            </div>
-            <div class="span6 bk-white">
-                <h1 id="scoreWhite" class="score pagination-centewhite">0</h1>
-                <hr>
-                <p class="">
-                    <a id="incWhite" class="white" title="Ajouter un point aux rouges" href="#" style="margin-left: 50px">+</a>
-                    <a id="decWhite" class="white " title="Enlever un point aux rouges" href="#" style="margin-left: 275px">-</a>
-                </p>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span3">
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/befana.jpg" class="span5">
+                        <img src="img/sponsors/autreregard.jpg" class="span5">
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/triskell.jpg" class="span5">
+                        <img src="img/sponsors/urb.jpg" class="span5">
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/mixn.jpg" class="span5">
+                        <img src="img/sponsors/caracthair.jpg" class="span5">
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/shopgun.jpg" class="span5">
+                        <img src="img/sponsors/usnc.jpg" class="span5">
+                    </div>
+                </div>
+                <div class="span6" style="margin-left: 0">
+                    <div class="row-fluid">
+                        <span class="span12">
+                        <h3 id="startPauseCountDown" class="btn btn-info btn-block">Start</h3>
+                        <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
+                            </span>
+                    </div>
+                    <div class="row-fluid">
+                        <div class="span6 bk-black">
+                            <h1 id="scoreBlack" class="score pagination-center">0</h1>
+                            <hr>
+                            <div class="row-fluid controls">
+                                <p class="offset1 span5 pagination-centered"><a id="incBlack" class="black" title="Ajouter un point aux noirs" href="#">+</a></p>
+                                <p class="span5 pagination-centered"><a id="decBlack" class="black" title="Enlver un point aux noirs" href="#">-</a></p>
+                            </div>
+                        </div>
+                        <div class="span6 bk-white" style="margin-left: 0">
+                            <h1 id="scoreWhite" class="score pagination-center">0</h1>
+                            <hr>
+                            <div class="row-fluid controls">
+                                <p class="offset1 span5 pagination-centered"><a id="incWhite" class="white" title="Ajouter un point aux blancs" href="#">+</a></p>
+                                <p class="span5 pagination-centered"><a id="decWhite" class="white" title="Enlever un point aux blancs" href="#">-</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="span3">
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/bouetard.jpg" class="span5">
+                        <img src="img/sponsors/cbtgendrot.jpg" class="span5">
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/bellevue.jpg" class="span5">
+                        <img src="img/sponsors/bleublanc.jpg" class="span5">
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/noyalchatillon.jpg" class="span5">
+                        <img src="img/sponsors/pouessel.jpg" class="span5">
+                    </div>
+                    <br>
+                    <div class="row-fluid">
+                        <img src="img/sponsors/supu.jpg" class="span5">
+                        <img src="img/sponsors/zefwin.jpg" class="span5">
+                    </div>
+                </div>
             </div>
         </div>
         <img id="vs" src="img/vs.png" />
