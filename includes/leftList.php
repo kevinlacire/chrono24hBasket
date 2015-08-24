@@ -1,37 +1,37 @@
 <ul class="span4 unstyled marginRight10 pagination-centered">
     <li>
         <address>
-            <h4>DAUCÉ Patricia</h4>
-            <strong>Trésorière - Relation Mairie Noyal - Comité 35 : réunion, AG</strong><br>
-            <a href="mailto:tichatpatou@gmail.com">Contacter la trésorière</a>
+            <h4>BOULAY Nicolas</h4>
+            <strong>Trésorier</strong><br>
+            <a href="mailto:tichatpatou@gmail.com">Contacter</a>
         </address>
     </li>
     <li>
         <address>
-            <h4>GUEGAN Cédric</h4>
-            <strong>Trésorier adjoint</strong><br>
-            <a href="mailto:cguegan@kpmg.fr">Contacter le trésorier adjoint</a>
+            <h4>CHESNAIS Cécile</h4>
+            <strong>Pré remplissage des feuilles de matchs <br>Contrôle et saisie des résultats</strong><br>
+            <a href="mailto:cecilechesnais@hotmail.fr">Contacter</a>
+        </address>
+    </li>
+    <li>
+        <address>
+            <h4>MANCEAU Aurélien</h4>
+            <strong>Commission arbitrage</strong><br>
+            <a href="mailto:aurelien.manceau@orange.fr">Contacter</a>
+        </address>
+    </li>
+    <li>
+        <address>
+            <h4>FLORET Bernard</h4>
+            <strong>Commission arbitrage</strong><br>
+            <a href="mailto:bernard.floret@sfr.fr">Contacter</a>
         </address>
     </li>
     <li>
         <address>
             <h4>MORIN Maryvonne</h4>
-            <strong>Salaires USNC</strong><br>
-            <a href="mailto:taz9@wanadoo.fr">Contacter la responsable des salaires</a>
-        </address>
-    <li>    
-    <li>
-        <address>
-            <h4>HEULOT Delphine</h4>
-            <strong>Matériel Adjoint - Licences : Forum & inscriptions - Feuilles de match</strong><br>
-            <a href="mailto:padel_35@orange.fr">Contacter la co-responsable des inscriptions</a>
-        </address>
-    </li>
-    <li>
-        <address>
-            <h4>CHESNAIS Martine</h4>
-            <strong>Licences : Forum & inscriptions</strong><br>
-            <a href="mailto:martine.chesnais@free.fr">Contacter la co-responsable des inscriptions</a>
+            <strong>Relations USNC - salaires et déclarations accident</strong><br>
+            <a href="mailto:taz9@wanadoo.fr">Contacter</a>
         </address>
     </li>
 </ul>

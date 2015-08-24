@@ -2,36 +2,36 @@
     <li>
         <address>
             <h4>BELHÔTE Michel</h4>
-            <strong>Vice-Président - Correspondance inter-clubs - Plannings</strong><br>
-            <a href="mailto:michel.belhote@orange.fr">Contacter le vice-président</a>
-        </address>
-    </li>
-    <li>
-        <address>
-            <h4>LEFEVRE Éric</h4>
-            <strong>Commission Technique</strong><br>
-            <a href="mailto:ericbaske@numericable.fr">Contacter le responsable de la commission technique</a>
-        </address>
-    </li>    
-    <li>
-        <address>
-            <h4>CORDEIRO David</h4>
-            <strong>Commission Technique - Adjoint</strong><br>
-            <a href="mailto:antoineperrudin@orange.fr">Contacter l'adjoint de la commission technique</a>
+            <strong>Vice-Président <br>Planning des matchs <br>Convocations clubs - report de matchs</strong><br>
+            <a href="mailto:michel.belhote@orange.fr">Contacter</a>
         </address>
     </li>
     <li>
         <address>
             <h4>CHABRIER Philippe</h4>
-            <strong>Responsable Matériel et "Service Technique"</strong><br>
-            <a href="mailto:chabphil@neuf.fr">Contacter le responsable matériel</a>
+            <strong>Responsable matériel - Commission animation</strong><br>
+            <a href="mailto:chabphil@neuf.fr">Contacter</a>
+        </address>
+    </li>
+    <li>
+        <address>
+            <h4>GENDROT Grégory</h4>
+            <strong>Commission animation - Relations OF et USNC</strong><br>
+            <a href="mailto:gregendrot@gmail.com">Contacter</a>
+        </address>
+    </li>
+    <li>
+        <address>
+            <h4>LABBE Mathieu</h4>
+            <strong>Tableau week end : responsable, arbitre et table <br>Commission animation</strong><br>
+            <a href="mailto:tieuma35@hotmail.fr">Contacter</a>
         </address>
     </li>
     <li>
         <address>
             <h4>LACIRE Kévin</h4>
             <strong>Site Internet - Facebook - Communication interne</strong><br>
-            <a href="mailto:kevinthefirst@gmail.com">Contacter le webmaster</a>
+            <a href="mailto:kevinthefirst@gmail.com">Contacter</a>
         </address>
     </li>
 </ul>
