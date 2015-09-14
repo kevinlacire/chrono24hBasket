@@ -35,7 +35,7 @@
                                     <li><a href="sponsors.php" title="Liste des sponsors de la saison">Sponsors</a></li>
                                     <li><a href="24h.php" title="24h Basket">24h Basket</a></li>
                                     <li><a href="acces.php" title="Nous trouver">Accès</a></li>
-                                    <li><a href="contact.php" title="Contacter l'USNC Basket">Contact</a></li>
+                                    <!--<li><a href="contact.php" title="Contacter l'USNC Basket">Contact</a></li>-->
                                 </ul>
                             </div>
                         </div>

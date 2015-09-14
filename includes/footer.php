@@ -10,7 +10,7 @@
         </div>
         <div class="span4">
             <h2>Contact</h2><p>Vous souhaitez prendre contact avec l'un des membre du Bureau. Il vous suffit de lui envoyer un mail.</p>
-            <p><a class="btn btn-inverse" href="contact.php" title="Contactez-nous">Contactez-nous <i class="icon-envelope"></i></a></p>
+            <p><a class="btn btn-inverse" href="bureau.php" title="Contactez-nous">Contactez-nous <i class="icon-envelope"></i></a></p>
         </div>
     </div>
 </footer>

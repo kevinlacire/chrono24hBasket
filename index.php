@@ -31,7 +31,7 @@
                                     <!--<li><a href="boutique.php" title="Boutique de l'USNC pour la saison">Boutique</a></li>-->
                                     <li><a href="sponsors.php" title="Liste des sponsors de la saison">Sponsors</a></li>
                                     <li><a href="acces.php" title="Nous trouver">Accès</a></li>
-                                    <li><a href="contact.php" title="Contacter l'USNC Basket">Contact</a></li>
+                                    <!--<li><a href="contact.php" title="Contacter l'USNC Basket">Contact</a></li>-->
                                 </ul>
                             </div>
                         </div>
