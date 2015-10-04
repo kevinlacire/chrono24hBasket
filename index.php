@@ -49,13 +49,70 @@
                 <p class="span6 lead pagination-justify">Le club de Noyal Chatillon sur seiche est composé de nombreuses équipes, pour un total de 170 licenciés répartis en 16 équipes allant de la première division à la pré-région réparties des mini poussins aux séniors. <a href="http://www.macadambasket.fr" >Macadam</a> est notre nouveau sponsors pour cette saison. Ce partenariat permet aux membres de l'USNC Basket de bénéficier d'une remise de <strong>10%</strong> sur tous le magasin.</p>
             </div>
             <h2>Dates clés de la saison 2015-2016 :</h2>
-            <ul class="alert alert-info unstyled lead ">
-                <li>- Tournoi de pré-saison : <strong>4 & 5 Septembre 2015</strong> <a href="pdf/tournoiPreSaison.pdf">(bulletin d'inscription)</a></li>
-                <li>- Forum des associations : <strong>5 Septembre 2015</strong></li>
-                <li><a href="24h.php">- 24 heures basket : <strong>6 et 7 mai 2016</a></strong></li>
-                <li>- Tournoi Détente : <strong>date à préciser</strong></li>
-                <li>- Tournoi humoristique : <strong>date à préciser</strong></li>
-                <li>- Assemblée Générale USNC : <strong>date à préciser</strong></li>
-            </ul>
+            <div class="row">
+                <ul class="span8 unstyled lead">
+                    <li>- Tournoi de pré-saison : <strong>4 & 5 Septembre 2015</strong> <a href="pdf/tournoiPreSaison.pdf">(bulletin d'inscription)</a></li>
+                    <li>- Forum des associations : <strong>5 Septembre 2015</strong></li>
+                    <li><a href="24h.php">- 24 heures basket : <strong>6 et 7 mai 2016</a></strong></li>
+                    <li>- Tournoi Détente : <strong>date à préciser</strong></li>
+                    <li>- Tournoi humoristique : <strong>date à préciser</strong></li>
+                    <li>- Assemblée Générale USNC : <strong>date à préciser</strong></li>
+                </ul>
+                <table class="span4 pagination-centered table-bordered table-striped">
+                    <caption class="lead"><strong>Résultats du Week-end</strong></caption>
+                    <thead>
+                        <tr>
+                            <th>USNC</th>
+                            <th>Score</th>
+                            <th>Score</th>
+                            <th>Adversaire</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="error">
+                            <td>U11 mixte</td>
+                            <td>20</td>
+                            <td>46</td>
+                            <td>Chartres</td>
+                        </tr>
+                        <tr class="success">
+                            <td>U13F</td>
+                            <td>48</td>
+                            <td>20</td>
+                            <td>Bruz</td>
+                        </tr>
+                        <tr class="success">
+                            <td>U15F</td>
+                            <td>50</td>
+                            <td>45</td>
+                            <td>Janzé 1</td>
+                        </tr>
+                        <tr class="error">
+                            <td>U17F</td>
+                            <td>40</td>
+                            <td>53</td>
+                            <td>Rennes CPB</td>
+                        </tr>
+                        <tr class="success">
+                            <td>SF</td>
+                            <td>48</td>
+                            <td>26</td>
+                            <td>Liffré</td>
+                        </tr>
+                        <tr class="error">
+                            <td>SG2</td>
+                            <td>58</td>
+                            <td>61</td>
+                            <td>Vern 2</td>
+                        </tr>
+                        <tr class="success">
+                            <td>SG1</td>
+                            <td>74</td>
+                            <td>40</td>
+                            <td>Redon</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <?php require 'includes/footer.php' ?>
