@@ -1,168 +1,163 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Chrono | USNC Basket - Union Sportive de Noyal-Châtillon/Seiche</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Site de l'association de l'USNC Basket de Noyal-Châtillon sur Seiche">
-        <meta name="author" content="Kévin LACIRE">
-        <link rel="icon" type="image/jpg" href="img/logoPlayer.jpg" />
-        <link href="css/bootstrap.css" rel="stylesheet">
-        <link href="css/24h.css" rel="stylesheet">
-        <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-        <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <script src="js/countdown.min.js"></script>
-        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-                <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <script type="text/javascript">
-            $(function () {
-                var totalSeconds;
-                var hours   = $('#heures');
-                var minutes = $('#minutes');
-                var seconds = $('#secondes');
+  <head>
+    <meta charset="utf-8">
+    <title>Chrono | USNC Basket - Union Sportive de Noyal-Châtillon/Seiche</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Site de l'association de l'USNC Basket de Noyal-Châtillon sur Seiche">
+    <meta name="author" content="Kévin LACIRE">
+    <link rel="icon" type="image/jpg" href="img/logoPlayer.jpg" />
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/24h.css" rel="stylesheet">
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/countdown.min.js"></script>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <script type="text/javascript">
+      $(function () {
+      var totalSeconds;
+      var hours = $('#heures');
+      var minutes = $('#minutes');
+      var seconds = $('#secondes');
+      function timeUpdate() {                 var sec = totalSeconds;
+      if (sec > 0) {
+      totalSeconds--;
+      var h = Math.floor(sec / 3600);
+      sec %= 3600;
+      var min = Math.floor(sec / 60);
+      sec %= 60;
+      hours.text(((h < 10) ? "0" : "") + h);
+      minutes.text(((min < 10) ? "0" : "") + min);
+      seconds.text(((sec < 10) ? "0" : "") + sec); }
+      else {
+      document.getElementById("heures").innerHTML = '';
+      document.getElementById("heures").innerHTML = 'The world has ended! Or has it?';
+      }
+      }
 
-                function timeUpdate() {
-                    var sec = totalSeconds;
-                    if (sec > 0) {
-                        totalSeconds--;
-                        var h = Math.floor(sec / 3600);
-                        sec %= 3600;
-                        var min = Math.floor(sec / 60);
-                        sec %= 60;
-                        hours.text(((h < 10) ? "0" : "") + h);
-                        minutes.text(((min < 10) ? "0" : "") + min);
-                        seconds.text(((sec < 10) ? "0" : "") + sec);
-                    }
-                    else {
-                        document.getElementById("heures").innerHTML = '';
-                        document.getElementById("heures").innerHTML = 'The world has ended! Or has it?';
-                    }
-                }
+      function initiate(sec) {
+      totalSeconds = parseInt(sec);
+      setInterval(function() {
+      timeUpdate();
+      }, 1000);
+      }
 
-                function initiate(sec) {
-                    totalSeconds = parseInt(sec);
-                    setInterval(function() {
-                        timeUpdate();
-                    }, 1000);
-                }
-
-                $('#startPauseCountDown').click(function(){
-                    initiate(24 * 60 * 60);
-                });
-
-                var scoreBlack = $("#scoreBlack");
-                var scoreWhite = $("#scoreWhite");
-
-                $('#incBlack').click(function () {
-                    var value = scoreBlack.text();
-                    value++;
-                    scoreBlack.text(value);
-                });
-                $('#incWhite').click(function () {
-                    var value = scoreWhite.text();
-                    value++;
-                    scoreWhite.text(value);
-                });
-                $('#decBlack').click(function () {
-                    var value = scoreBlack.text();
-                    if(value > 0) {
-                        value--;
-                    }
-                    scoreBlack.text(value);
-                });
-                $('#decWhite').click(function () {
-                    var value = scoreWhite.text();
-                    if(value > 0) {
-                        value--;
-                    }
-                    scoreWhite.text(value);
-                });
-                window.onbeforeunload = function() {
-                    return "Si vous quittez cette page toutes le score et le chrono seront remis à zéro.";
-                }
-                function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
-                $(document).bind("keydown", disableF5);
-                $(document).on("keydown", disableF5);
-            });
-        </script>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span3">
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/befana.jpg" class="span5">
-                        <img src="img/sponsors/autreregard.jpg" class="span5">
-                    </div>
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/triskell.jpg" class="span5">
-                        <img src="img/sponsors/urb.jpg" class="span5">
-                    </div>
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/mixn.jpg" class="span5">
-                        <img src="img/sponsors/caracthair.jpg" class="span5">
-                    </div>
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/shopgun.jpg" class="span5">
-                        <img src="img/sponsors/usnc.jpg" class="span5">
-                    </div>
-                </div>
-                <div class="span6" style="margin-left: 0">
-                    <div class="row-fluid">
-                        <span class="span12">
-                        <h3 id="startPauseCountDown" class="btn btn-info btn-block">Start</h3>
-                        <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
-                            </span>
-                    </div>
-                    <div class="row-fluid">
-                        <div class="span6 bk-black">
-                            <h1 id="scoreBlack" class="score pagination-center">0</h1>
-                            <hr>
-                            <div class="row-fluid controls">
-                                <p class="offset1 span5 pagination-centered"><a id="incBlack" class="black" title="Ajouter un point aux noirs" href="#">+</a></p>
-                                <p class="span5 pagination-centered"><a id="decBlack" class="black" title="Enlver un point aux noirs" href="#">-</a></p>
-                            </div>
-                        </div>
-                        <div class="span6 bk-white" style="margin-left: 0">
-                            <h1 id="scoreWhite" class="score pagination-center">0</h1>
-                            <hr>
-                            <div class="row-fluid controls">
-                                <p class="offset1 span5 pagination-centered"><a id="incWhite" class="white" title="Ajouter un point aux blancs" href="#">+</a></p>
-                                <p class="span5 pagination-centered"><a id="decWhite" class="white" title="Enlever un point aux blancs" href="#">-</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="span3">
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/bouetard.jpg" class="span5">
-                        <img src="img/sponsors/cbtgendrot.jpg" class="span5">
-                    </div>
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/bellevue.jpg" class="span5">
-                        <img src="img/sponsors/bleublanc.jpg" class="span5">
-                    </div>
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/noyalchatillon.jpg" class="span5">
-                        <img src="img/sponsors/pouessel.jpg" class="span5">
-                    </div>
-                    <br>
-                    <div class="row-fluid">
-                        <img src="img/sponsors/supu.jpg" class="span5">
-                        <img src="img/sponsors/zefwin.jpg" class="span5">
-                    </div>
-                </div>
-            </div>
+      $('#startPauseCountDown').click(function(){
+      initiate(24 * 60 * 60);
+      });
+      var scoreBlack = $("#scoreBlack");
+      var scoreWhite = $("#scoreWhite");
+      $('#incBlack').click(funct io n () {
+      var value = scoreBlack.text();
+      value++;
+      scoreBlack.text(value);
+      });
+      $('#incWhite').click(function () {
+      var value = scoreWhite.text();
+      value++;
+      scoreWhite.text(value);
+      });
+      $('#decBlack').click(function () {
+      var value = scoreBlack.text();
+      if (value > 0) {
+      value--;
+      }
+      scoreBlack.text(value);
+      });
+      $('#decWhite').click(function () {
+      var value = scoreWhite.text();
+      if (value > 0) {
+      value--;
+      }
+      scoreWhite.text(value);
+      });
+      window.onbeforeunload = function() {
+      return "Si vous quittez cette page toutes le score et le chrono seront remis à zéro.";
+      }
+      function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+      $(document).bind("keydown", disableF5);
+      $(document).on("keydown", disa bleF5);
+      });
+    </script>
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span3">
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/befana.jpg" class="span5">
+            <img src="img/sponsors/autreregard.jpg" class="span5">
+          </div>
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/triskell.jpg" class="span5">
+            <img src="img/sponsors/urb.jpg" class="span5">
+          </div>
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/mixn.jpg" class="span5">
+            <img src="img/sponsors/caracthair.jpg" class="span5">
+          </div>
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/shopgun.jpg" class="span5">
+            <img src="img/sponsors/usnc.jpg" class="span5">
+          </div>
         </div>
-        <img id="vs" src="img/vs.png" />
+        <div class="span6" style="margin-left: 0">
+          <div class="row-fluid">
+            <span class="span12">
+              <h3 id="startPauseCountDown" class="btn btn-info btn-block">Start</h3>
+              <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
+            </span>
+          </div>
+          <div class="row-fluid">
+            <div class="span6 bk-black">
+              <h1 id="scoreBlack" class="score pagination-center">0</h1>
+              <hr>
+              <div class="row-fluid controls">
+                <p class="offset1 span5 pagination-centered"><a id="incBlack" class="black" title="Ajouter un point aux noirs" href="#">+</a></p>
+                <p class="span5 pagination-centered"><a id="decBlack" class="black" title="Enlver un point aux noirs" href="#">-</a></p>
+              </div>
+            </div>
+            <div class="span6 bk-white" style="margin-left: 0">
+              <h1 id="scoreWhite" class="score pagination-center">0</h1>
+              <hr>
+              <div class="row-fluid controls">
+                <p class="offset1 span5 pagination-centered"><a id="incWhite" class="white" title="Ajouter un point aux blancs" href="#">+</a></p>
+                <p class="span5 pagination-centered"><a id="decWhite" class="white" title="Enlever un point aux blancs" href="#">-</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="span3">
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/bouetard.jpg" class="span5">
+            <img src="img/sponsors/cbtgendrot.jpg" class="span5">
+          </div>
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/bellevue.jpg" class="span5">
+            <img src="img/sponsors/bleublanc.jpg" class="span5">
+          </div>
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/noyalchatillon.jpg" class="span5">
+            <img src="img/sponsors/pouessel.jpg" class="span5">
+          </div>
+          <br>
+          <div class="row-fluid">
+            <img src="img/sponsors/supu.jpg" class="span5">
+            <img src="img/sponsors/zefwin.jpg" class="span5">
+          </div>
+        </div>
+      </div>
+    </div>
+    <img id="vs" src="img/vs.png" />

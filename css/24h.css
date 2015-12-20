@@ -5,57 +5,57 @@
     font-size: 110px;
 }*/
 .time{
-    color: #1A53BC;
-    font-size:200px;
-    font-weight:bold;
-    height:140px;
-    left:30px; top:10px;
-    text-align:center;
-    margin-top: 10px;
+  color: #1A53BC;
+  font-size:200px;
+  font-weight:bold;
+  height:140px;
+  left:30px; top:10px;
+  text-align:center;
+  margin-top: 10px;
 }
 .score{
-    font-size: 120px;
-    height: 150px;
-    margin: 80px 0 -30px;
-    text-align: center;
+  font-size: 120px;
+  height: 150px;
+  margin: 80px 0 -30px;
+  text-align: center;
 }
 
 .black, .white, .black:hover, .white:hover{
-    text-decoration: none;
-    font-size: 80px;
-    font-weight: 800;
+  text-decoration: none;
+  font-size: 80px;
+  font-weight: 800;
 }
 
 .bk-black{
-    background-color: black;
-    color: whitesmoke;
+  background-color: black;
+  color: whitesmoke;
 }
 #incBlack, #decBlack{
-    color: whitesmoke;
+  color: whitesmoke;
 }
 #incWhite, #decWhite{
-    color: black;
+  color: black;
 }
 .bk-white{
-    background-color: whitesmoke;
-    color: black;
+  background-color: whitesmoke;
+  color: black;
 }
 .bk-white hr{
-    border: 1px solid black;
+  border: 1px solid black;
 }
 #vs{
-    position:absolute;
-    top: calc(48%);
-    left: calc(48% - 50px);
-    width: 100px
+  position:absolute;
+  top: calc(48%);
+  left: calc(48% - 50px);
+  width: 100px
 }
 .middle{
-    margin-top: 150px;
+  margin-top: 150px;
 }
 .controls{
-    font-size: 100px;
+  font-size: 100px;
 }
 .controls p{
-    margin-top: 0;
-    margin-bottom: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
 }
