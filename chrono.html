@@ -22,68 +22,94 @@
   <body>
     <script type="text/javascript">
       $(function () {
-      var totalSeconds;
-      var hours = $('#heures');
-      var minutes = $('#minutes');
-      var seconds = $('#secondes');
-      function timeUpdate() {                 var sec = totalSeconds;
-      if (sec > 0) {
-      totalSeconds--;
-      var h = Math.floor(sec / 3600);
-      sec %= 3600;
-      var min = Math.floor(sec / 60);
-      sec %= 60;
-      hours.text(((h < 10) ? "0" : "") + h);
-      minutes.text(((min < 10) ? "0" : "") + min);
-      seconds.text(((sec < 10) ? "0" : "") + sec); }
-      else {
-      document.getElementById("heures").innerHTML = '';
-      document.getElementById("heures").innerHTML = 'The world has ended! Or has it?';
-      }
-      }
+        var count;
 
-      function initiate(sec) {
-      totalSeconds = parseInt(sec);
-      setInterval(function() {
-      timeUpdate();
-      }, 1000);
-      }
+        //Score fields
+        var scoreBlack  = $("#scoreBlack");
+        var scoreWhite  = $("#scoreWhite");
 
-      $('#startPauseCountDown').click(function(){
-      initiate(24 * 60 * 60);
-      });
-      var scoreBlack = $("#scoreBlack");
-      var scoreWhite = $("#scoreWhite");
-      $('#incBlack').click(funct io n () {
-      var value = scoreBlack.text();
-      value++;
-      scoreBlack.text(value);
-      });
-      $('#incWhite').click(function () {
-      var value = scoreWhite.text();
-      value++;
-      scoreWhite.text(value);
-      });
-      $('#decBlack').click(function () {
-      var value = scoreBlack.text();
-      if (value > 0) {
-      value--;
-      }
-      scoreBlack.text(value);
-      });
-      $('#decWhite').click(function () {
-      var value = scoreWhite.text();
-      if (value > 0) {
-      value--;
-      }
-      scoreWhite.text(value);
-      });
-      window.onbeforeunload = function() {
-      return "Si vous quittez cette page toutes le score et le chrono seront remis à zéro.";
-      }
-      function disableF5(e) { if ((e.which || e.keyCode) == 116) e.preventDefault(); };
+        //Date fields
+        var hours       = $('#heures');
+        var minutes     = $('#minutes');
+        var seconds     = $('#secondes');
+
+        scoreBlack.text(localStorage.getItem("scoreBlack") !== null ? localStorage.getItem("scoreBlack") : 0);
+        scoreWhite.text(localStorage.getItem("scoreWhite") !== null ? localStorage.getItem("scoreWhite") : 0);
+
+        $('#startPauseCountDown').click(function(){
+            var inADay = localStorage.getItem('inADay');
+            if(inADay == null){
+              inADay = Date.now()+(24*60*60*1000);
+              inADay = Date.now()+(5*1000);
+            }
+            localStorage.setItem('inADay', inADay);
+            var timerId =
+              countdown(
+                function(ts) {
+                  hours.text(((ts.hours < 10) ? "0" : "") + ts.hours);
+                  minutes.text(((ts.minutes < 10) ? "0" : "") + ts.minutes);
+                  seconds.text(((ts.seconds < 10) ? "0" : "") + ts.seconds);
+                  if(ts.hours == 0 && ts.minutes == 0 && ts.seconds == 0){
+                    window.clearInterval(timerId);
+                    localStorage.setItem('over', true);
+                  }
+                },
+                parseInt(inADay),
+                countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+
+          $(this).prop("disabled",true);
+          $(this).text("Chrono lancé");
+        });
+        $('#incBlack').click(function () {
+          if(localStorage.getItem('over') == null){
+            var value = scoreBlack.text();
+            value++;
+            scoreBlack.text(value);
+            localStorage.setItem('scoreBlack', value);
+          }
+        });
+        $('#incWhite').click(function () {
+          if(localStorage.getItem('over') == null){
+            var value = scoreWhite.text();
+            value++;
+            scoreWhite.text(value);
+            localStorage.setItem('scoreWhite', value);
+          }
+        });
+        $('#decBlack').click(function () {
+          if(localStorage.getItem('over') == null){
+            var value = scoreBlack.text();
+            if (value > 0) {
+              value--;
+            }
+            scoreBlack.text(value);
+            localStorage.setItem('scoreBlack', value);
+          }
+        });
+        $('#decWhite').click(function () {
+          if(localStorage.getItem('over') == null){
+            var value = scoreWhite.text();
+            if (value > 0) {
+              value--;
+            }
+            scoreWhite.text(value);
+            localStorage.setItem('scoreWhite', value);
+          }
+        });
+
+      /*window.onbeforeunload = function() {
+        return "Si vous quittez cette page toutes le score et le chrono seront remis à zéro.";
+      }*/
+
+      /*function disableF5(e) {
+        if ((e.which || e.keyCode) == 116) {
+          e.preventDefault();
+        }
+      };
       $(document).bind("keydown", disableF5);
-      $(document).on("keydown", disa bleF5);
+      $(document).on("keydown", disableF5);*/
+
+
       });
     </script>
     <div class="container-fluid">
@@ -113,7 +139,7 @@
         <div class="span6" style="margin-left: 0">
           <div class="row-fluid">
             <span class="span12">
-              <h3 id="startPauseCountDown" class="btn btn-info btn-block">Start</h3>
+              <button id="startPauseCountDown" class="btn btn-info btn-block">Start</button>
               <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
             </span>
           </div>
