@@ -6,7 +6,7 @@
 }*/
 .time{
   color: #1A53BC;
-  font-size:200px;
+  font-size:250px;
   font-weight:bold;
   height:140px;
   left:30px; top:10px;
@@ -45,12 +45,12 @@
 }
 #vs{
   position:absolute;
-  top: calc(48%);
+  top: calc(41%);
   left: calc(48% - 50px);
   width: 100px
 }
 .middle{
-  margin-top: 150px;
+  margin-top: 85px;
 }
 .controls{
   font-size: 100px;
@@ -58,4 +58,8 @@
 .controls p{
   margin-top: 0;
   margin-bottom: 20px;
+}
+
+.center-sponsor {
+  width: 19%
 }
