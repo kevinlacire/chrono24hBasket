@@ -5,7 +5,7 @@
   <div class="span5 h24">
     <p><strong>Complexe Raymond PERRIN</strong></p>
     <p>Juniors (U20) / Séniors / Détente / Mixte</p>
-    <p><strong>7 & 8 Mai 2014 de 19h à 19h</strong></p>
+    <p><strong>7 & 8 Mai 2016 de 13h à 13h</strong></p>
     <p>Entrée + participation gratuite</p>
     <p>Buvette & restauration sur place</p>
     <hr>
