@@ -1,100 +1,104 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <title>Chrono | USNC Basket - Union Sportive de Noyal-Châtillon/Seiche</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Site de l'association de l'USNC Basket de Noyal-Châtillon sur Seiche">
-    <meta name="author" content="Kévin LACIRE">
-    <link rel="icon" type="image/jpg" href="img/logoPlayer.jpg" />
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/24h.css" rel="stylesheet">
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script src="js/countdown.min.js"></script>
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-            <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <script type="text/javascript">
-      $(function () {
-        var count;
 
-        //Score fields
-        var scoreBlack  = $("#scoreBlack");
-        var scoreWhite  = $("#scoreWhite");
+<head>
+  <meta charset="utf-8">
+  <title>Chrono | USNC Basket - Union Sportive de Noyal-Châtillon/Seiche</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Site de l'association de l'USNC Basket de Noyal-Châtillon sur Seiche">
+  <meta name="author" content="Kévin LACIRE">
+  <link rel="icon" type="image/jpg" href="img/logoPlayer.jpg" />
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/tileSlideshow.css" rel="stylesheet">
+  <link href="css/24h.css" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script src="js/countdown.min.js"></script>
+  <script src="js/tileSlideshow.min.js"></script>
+</head>
 
-        //Date fields
-        var hours       = $('#heures');
-        var minutes     = $('#minutes');
-        var seconds     = $('#secondes');
+<body>
+  <script type="text/javascript">
+    $(function () {
+      $('.tile-container').tileSlideshow({
+        animation: 'randomMove',
+        animationSpeed: 1000,
+        itemsPerInterval: 2,
+        interval: 1000
+      });
 
-        scoreBlack.text(localStorage.getItem("scoreBlack") !== null ? localStorage.getItem("scoreBlack") : 0);
-        scoreWhite.text(localStorage.getItem("scoreWhite") !== null ? localStorage.getItem("scoreWhite") : 0);
+      var count;
 
-        $('#startPauseCountDown').click(function(){
-            var inADay = localStorage.getItem('inADay');
-            if(inADay == null){
-              inADay = Date.now()+(24*60*60*1000);
-            }
-            localStorage.setItem('inADay', inADay);
-            var timerId =
-              countdown(
-                function(ts) {
-                  hours.text(((ts.hours < 10) ? "0" : "") + ts.hours);
-                  minutes.text(((ts.minutes < 10) ? "0" : "") + ts.minutes);
-                  seconds.text(((ts.seconds < 10) ? "0" : "") + ts.seconds);
-                  if(ts.hours == 0 && ts.minutes == 0 && ts.seconds == 0){
-                    window.clearInterval(timerId);
-                    localStorage.setItem('over', true);
-                  }
-                },
-                parseInt(inADay),
-                countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
+      //Score fields
+      var scoreBlack = $("#scoreBlack");
+      var scoreWhite = $("#scoreWhite");
 
-          $(this).prop("disabled",true);
-          $(this).text("Chrono lancé");
-        });
-        $('#incBlack').click(function () {
-          if(localStorage.getItem('over') == null){
-            var value = scoreBlack.text();
-            value++;
-            scoreBlack.text(value);
-            localStorage.setItem('scoreBlack', value);
+      //Date fields
+      var hours = $('#heures');
+      var minutes = $('#minutes');
+      var seconds = $('#secondes');
+
+      scoreBlack.text(localStorage.getItem("scoreBlack") !== null ? localStorage.getItem("scoreBlack") : 0);
+      scoreWhite.text(localStorage.getItem("scoreWhite") !== null ? localStorage.getItem("scoreWhite") : 0);
+
+      $('#startPauseCountDown').click(function () {
+        var inADay = localStorage.getItem('inADay');
+        if (inADay == null) {
+          inADay = Date.now() + (24 * 60 * 60 * 1000);
+        }
+        localStorage.setItem('inADay', inADay);
+        var timerId =
+          countdown(
+            function (ts) {
+              hours.text(((ts.hours < 10) ? "0" : "") + ts.hours);
+              minutes.text(((ts.minutes < 10) ? "0" : "") + ts.minutes);
+              seconds.text(((ts.seconds < 10) ? "0" : "") + ts.seconds);
+              if (ts.hours == 0 && ts.minutes == 0 && ts.seconds == 0) {
+                window.clearInterval(timerId);
+                localStorage.setItem('over', true);
+              }
+            },
+            parseInt(inADay),
+            countdown.HOURS | countdown.MINUTES | countdown.SECONDS);
+
+        $(this).prop("disabled", true);
+        $(this).text("Chrono lancé");
+      });
+      $('#incBlack').click(function () {
+        if (localStorage.getItem('over') == null) {
+          var value = scoreBlack.text();
+          value++;
+          scoreBlack.text(value);
+          localStorage.setItem('scoreBlack', value);
+        }
+      });
+      $('#incWhite').click(function () {
+        if (localStorage.getItem('over') == null) {
+          var value = scoreWhite.text();
+          value++;
+          scoreWhite.text(value);
+          localStorage.setItem('scoreWhite', value);
+        }
+      });
+      $('#decBlack').click(function () {
+        if (localStorage.getItem('over') == null) {
+          var value = scoreBlack.text();
+          if (value > 0) {
+            value--;
           }
-        });
-        $('#incWhite').click(function () {
-          if(localStorage.getItem('over') == null){
-            var value = scoreWhite.text();
-            value++;
-            scoreWhite.text(value);
-            localStorage.setItem('scoreWhite', value);
+          scoreBlack.text(value);
+          localStorage.setItem('scoreBlack', value);
+        }
+      });
+      $('#decWhite').click(function () {
+        if (localStorage.getItem('over') == null) {
+          var value = scoreWhite.text();
+          if (value > 0) {
+            value--;
           }
-        });
-        $('#decBlack').click(function () {
-          if(localStorage.getItem('over') == null){
-            var value = scoreBlack.text();
-            if (value > 0) {
-              value--;
-            }
-            scoreBlack.text(value);
-            localStorage.setItem('scoreBlack', value);
-          }
-        });
-        $('#decWhite').click(function () {
-          if(localStorage.getItem('over') == null){
-            var value = scoreWhite.text();
-            if (value > 0) {
-              value--;
-            }
-            scoreWhite.text(value);
-            localStorage.setItem('scoreWhite', value);
-          }
-        });
+          scoreWhite.text(value);
+          localStorage.setItem('scoreWhite', value);
+        }
+      });
 
       // window.onbeforeunload = function() {
       //   return "Si vous quittez cette page toutes le score et le chrono seront remis à zéro.";
@@ -109,100 +113,133 @@
       // $(document).on("keydown", disableF5);
 
 
-      });
-    </script>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/befana.jpg" class="span5">
-            <img src="img/sponsors/caracthair.jpg" class="span5">
-          </div>
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/american-carwash.jpg" class="span5">
-            <img src="img/sponsors/urb.jpg" class="span5">
-          </div>
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/lysadis.jpg" class="span5">
-            <img src="img/sponsors/un-autre-regard.jpg" class="span5">
-          </div>
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/shopgun.jpg" class="span5">
-            <img src="img/sponsors/cap-a-louest.jpg" class="span5">
-          </div>
-          <div class="row-fluid">
-            <img src="img/sponsors/gc-construction.jpg" class="span5">
-            <img src="img/sponsors/ordynamik.jpg" class="span5">
-          </div>
+    });
+  </script>
+  <div class="container-fluid">
+    <div class="middle time">
+      <span id="heures">24</span>
+      <strong>:</strong>
+      <span id="minutes">00</span>
+      <strong>:</strong>
+      <span id="secondes">00</span>
+    </div>
+    <div class="row">
+      <div class="col bk-black">
+        <hr>
+        <h1 id="scoreBlack" class="score pagination-center">0</h1>
+        <hr>
+        <div class="row controls">
+          <p class="offset1 col pagination-centered">
+            <a id="incBlack" class="black" title="Ajouter un point aux noirs" href="#">+</a>
+          </p>
+          <p class="col pagination-centered">
+            <a id="decBlack" class="black" title="Enlver un point aux noirs" href="#">-</a>
+          </p>
         </div>
-        <div class="span6" style="margin-left: 0">
-          <br><br><br><br>
-          <div class="row-fluid">
-            <span class="span12">
-              <div class="middle time"><span id="heures">24</span><strong>:</strong><span id="minutes">00</span><strong>:</strong><span id="secondes">00</span></div>
-            </span>
-          </div>
-          <div class="row-fluid">
-            <div class="span6 bk-black">
-              <h1 id="scoreBlack" class="score pagination-center">0</h1>
-              <hr>
-              <div class="row-fluid controls">
-                <p class="offset1 span5 pagination-centered"><a id="incBlack" class="black" title="Ajouter un point aux noirs" href="#">+</a></p>
-                <p class="span5 pagination-centered"><a id="decBlack" class="black" title="Enlver un point aux noirs" href="#">-</a></p>
-              </div>
-            </div>
-            <div class="span6 bk-white" style="margin-left: 0">
-              <h1 id="scoreWhite" class="score pagination-center">0</h1>
-              <hr>
-              <div class="row-fluid controls">
-                <p class="offset1 span5 pagination-centered"><a id="incWhite" class="white" title="Ajouter un point aux blancs" href="#">+</a></p>
-                <p class="span5 pagination-centered"><a id="decWhite" class="white" title="Enlever un point aux blancs" href="#">-</a></p>
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="row-fluid">
-            <div class="row-fluid">
-              <img src="img/sponsors/24h.jpg" class="center-sponsor">
-              <img src="img/sponsors/noyal.jpg" class="center-sponsor">
-              <img src="img/sponsors/usnc.jpg" class="center-sponsor">
-              <img src="img/sponsors/yati-breizh.jpg" class="center-sponsor">
-              <img src="img/sponsors/eurovia.jpg" class="center-sponsor">
-            </div>
-          </div>
-          <br>
-          <button id="startPauseCountDown" class="btn btn-info btn-block">Start</button>
-        </div>
-        <div class="span3">
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/le-triskell.jpg" class="span5">
-            <img src="img/sponsors/banette.jpg" class="span5">
-          </div>
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/bellevue.jpg" class="span5">
-            <img src="img/sponsors/breizh-sports.jpg" class="span5">
-          </div>
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/cabinet-gendrot.jpg" class="span5">
-            <img src="img/sponsors/pouessel.jpg" class="span5">
-          </div>
-          <br>
-          <div class="row-fluid">
-            <img src="img/sponsors/superu.jpg" class="span5">
-            <img src="img/sponsors/dalibot.jpg" class="span5">
-          </div>
-          <div class="row-fluid">
-            <img src="img/sponsors/collet.jpg" class="span5">
-            <img src="img/sponsors/zefwin.jpg" class="span5">
-          </div>
+      </div>
+      <div class="col bk-white">
+        <hr>
+        <h1 id="scoreWhite" class="score pagination-center">0</h1>
+        <hr>
+        <div class="row controls">
+          <p class="offset1 col pagination-centered">
+            <a id="incWhite" class="white" title="Ajouter un point aux blancs" href="#">+</a>
+          </p>
+          <p class="col pagination-centered">
+            <a id="decWhite" class="white" title="Enlever un point aux blancs" href="#">-</a>
+          </p>
         </div>
       </div>
     </div>
-    <img id="vs" src="img/vs.png" />
+    <div class="row">
+      <div class="col tile-container">
+        <div class="tile-item">
+          <img src="img/sponsors/american-carwash.jpg" alt="" />
+          <img src="img/sponsors/angevin.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+        <div class="tile-item">
+          <img src="img/sponsors/banette.jpg" alt="" />
+          <img src="img/sponsors/befana.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <p class="text-center font-weight-bold">Un grand merci à tous nos sponsors !</p>
+      </div>
+    </div>
+    <!-- <button id="startPauseCountDown" class="btn btn-info btn-block">Start</button> -->
+  </div>
+  <img id="vs" src="img/vs.png" />
