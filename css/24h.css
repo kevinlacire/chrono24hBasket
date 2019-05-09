@@ -15,7 +15,7 @@
   position: absolute;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #34495e;
+  color: whitesmoke;
   font-family: digital7;
   font-size:1200%;
   /* font-weight:bold; */
@@ -23,9 +23,11 @@
   text-align:center;
   z-index: 999;
 }
+
 body {
   line-height: 0.8;
 }
+
 .score{
   font-family: digital7;
   font-size: 200px;
@@ -42,11 +44,12 @@ body {
 }
 
 .bk-black{
-  background-color: #95a5a6;
+  background-color: #970a68;
   color: whitesmoke;
   margin-right: 0;
   padding-top: 200px;
 }
+
 .bk-black hr{
   border: 1px solid black;
 }
@@ -54,26 +57,32 @@ body {
 #incBlack, #decBlack{
   color: whitesmoke;
 }
+
 #incWhite, #decWhite{
-  color: black;
+  color: whitesmoke;
 }
+
 .bk-white{
-  background-color: #f1c40f;
-  color: black;
+  background-color: #007419;
+  color: whitesmoke;
   padding-top: 200px;
 }
+
 .bk-white hr{
   border: 1px solid black;
 }
+
 #vs{
   position:absolute;
   top: calc(30%);
   left: calc(50% - 50px);
   width: 100px
 }
+
 .controls{
   font-size: 100px;
 }
+
 .controls p{
   margin-top: 0;
   margin-bottom: 20px;
