@@ -15,7 +15,7 @@
   position: absolute;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: whitesmoke;
+  color: black;
   font-family: digital7;
   font-size:1200%;
   /* font-weight:bold; */
@@ -44,8 +44,8 @@ body {
 }
 
 .bk-black{
-  background-color: #9f3449;
-  color: whitesmoke;
+  background-color: #fda948;
+  color: black;
   margin-right: 0;
   padding-top: 200px;
 }
@@ -55,16 +55,16 @@ body {
 }
 
 #incBlack, #decBlack{
-  color: whitesmoke;
+  color: black;
 }
 
 #incWhite, #decWhite{
-  color: whitesmoke;
+  color: black;
 }
 
 .bk-white{
-  background-color: #2159a2;
-  color: whitesmoke;
+  background-color: #60d8e8;
+  color: black;
   padding-top: 200px;
 }
 
